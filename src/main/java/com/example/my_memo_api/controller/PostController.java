@@ -1,11 +1,16 @@
 package com.example.my_memo_api.controller;
 
 import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.example.my_memo_api.entity.Post;
 import com.example.my_memo_api.service.PostService;
+
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -21,6 +26,11 @@ public class PostController {
     @GetMapping
     public List<Post> getAllPosts() {
         return postService.getAllPosts();
+    }
+
+    @PostMapping
+    public Post createPost(@RequestBody Post post) {
+        return postService.savePost(post);
     }
 
 }
