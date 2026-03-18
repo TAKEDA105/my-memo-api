@@ -2,6 +2,7 @@ package com.example.my_memo_api.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/posts")
+@CrossOrigin(origins = "http://localhost:5173") // ←Viteからのアクセスを許可
 @RequiredArgsConstructor
 public class PostController {
 
